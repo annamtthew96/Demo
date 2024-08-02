@@ -29,8 +29,8 @@ phases:
       - echo Build completed on `date`
       - echo Re-logging into Amazon ECR...
       - aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 132132092976.dkr.ecr.eu-west-1.amazonaws.com
-      - docker push 750367672028.dkr.ecr.eu-west-1.amazonaws.com/aws-ecr-ecs:latest
-      - docker push 750367672028.dkr.ecr.eu-west-1.amazonaws.com/aws-ecr-ecs:$IMAGE_TAG
+      - docker push 132132092976.dkr.ecr.eu-west-1.amazonaws.com/twaddan-ecr:latest
+      - docker push 132132092976.dkr.ecr.eu-west-1.amazonaws.com/twaddan-ecr:$IMAGE_TAG
       - echo write definitions file...
       - printf '[{"name":"exp-code-pipeline","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
 artifacts:
